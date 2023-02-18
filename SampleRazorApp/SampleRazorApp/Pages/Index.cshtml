@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{num?}"
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -6,31 +6,6 @@
 
 <div>
     <h1 class="display-4 mb-4">Welcome</h1>
-    <ul>
-        @{
-            int totalp = 0;
-            int totaln = 0;
-        }
-        @for (int i = 2; i <= 20; i++)
-        {
-            bool flg = true;
-            @for (int j = 2; j <= i / 2; j++)
-            {
-                @if (i % j == 0)
-                {
-                    flg = false;
-                }
-            }
-            @if (flg)
-            {
-                totalp += i;
-                <li>@i は、素数です。(total:@totalp)</li>
-            }
-            else
-            {
-                totaln += i;
-                <li>@i  は、素数ではない。[total:@totaln]</li>
-            }
-        }
-    </ul>
+    <p class="h4">@Model.Num  は、
+        <b>@(Model.Num % 2 == 0 ? "偶数" : "奇数") </b>です。</p>
 </div>
