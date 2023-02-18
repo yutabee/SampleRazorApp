@@ -18,7 +18,7 @@ app.UseStaticFiles(); //静的ファイルを利用するためのミドルウ�
 
 app.UseRouting(); //ルーティングミドルウェアの追加(Pages配下のファイルにパスでアクセス)
 
-app.UseAuthorization(); //RazorPageを利用するためのミドルウェアを追加S
+app.UseAuthorization(); 
 
 app.MapRazorPages();
 
