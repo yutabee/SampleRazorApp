@@ -3,13 +3,23 @@
 @{
     ViewData["Title"] = "Home page";
 }
-
+@functions {
+    string hello(string name)
+    {
+        return "Hello, " + name + "!!";
+    }
+    int total(int n)
+    {
+        int re = 0;
+        for(int i = 1;i <= n;i++)
+        {
+            re += i;
+        }
+        return re;
+    }
+}
 <div>
     <h1 class="display-4 mb-4">Welcome</h1>
-    <div class="h4">
-        @{
-             int n = Model.Num * 2;
-             <Text>※整数 @Model.Num の２倍は、@n です。</Text>
-         }
-    </div>
+    <p class="h4">@hello("太郎")</p>
+    <p class="h4">@Model.Num の合計は、@total(Model.Num) 。</p>
 </div>
