@@ -12,6 +12,7 @@ namespace SampleRazorApp.Pages
         new string[]{"Sachiko", "sachiko@happy"}
     };
 
+        //クエリーパラメーターをページモデルにバインドする
         [BindProperty(SupportsGet = true)]
         public int id { get; set; }
 
@@ -25,6 +26,6 @@ namespace SampleRazorApp.Pages
             string[] target = data[id];
             return "[名前：" + target[0] + ", メール：" + target[1] + "]";
         }
+ 
     }
-
 }
