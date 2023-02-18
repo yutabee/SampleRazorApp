@@ -13,12 +13,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseHttpsRedirection();　//リダイレクトするためのミドルウェアを追加
+app.UseStaticFiles(); //静的ファイルを利用するためのミドルウェアを追加
 
-app.UseRouting();
+app.UseRouting(); //ルーティングミドルウェアの追加(Pages配下のファイルにパスでアクセス)
 
-app.UseAuthorization();
+app.UseAuthorization(); //RazorPageを利用するためのミドルウェアを追加S
 
 app.MapRazorPages();
 
