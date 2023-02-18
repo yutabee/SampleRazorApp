@@ -6,6 +6,10 @@
 
 <div>
     <h1 class="display-4 mb-4">Welcome</h1>
-    <p class="h4">@Model.Num  は、
-        <b>@(Model.Num % 2 == 0 ? "偶数" : "奇数") </b>です。</p>
+    <div class="h4">
+        @{
+             int n = Model.Num * 2;
+             <Text>※整数 @Model.Num の２倍は、@n です。</Text>
+         }
+    </div>
 </div>
