@@ -48,10 +48,14 @@ namespace SampleRazorApp.Pages
                 return Page();
             }
 
+            //Attach=>引数に指定したオブジェクトの更新を追跡する
+            //Stateはその状態を表すプロパティ
+            //EntityState.Modifiedを設定すると更新されたと判断される
             _context.Attach(Person).State = EntityState.Modified;
 
             try
             {
+                //Attachでデータコンテキストにオブジェクトを追加するとここでデータベースに反映される
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -68,7 +72,7 @@ namespace SampleRazorApp.Pages
 
             return RedirectToPage("./Index");
         }
-
+        //PersonIdが既に存在するかどうか判定する
         private bool PersonExists(int id)
         {
           return (_context.Person?.Any(e => e.PersonId == id)).GetValueOrDefault();

@@ -52,6 +52,7 @@ namespace SampleRazorApp.Pages
 
             if (person != null)
             {
+                //削除するPersonModelのPersonインスタンスをDeleteModelのPersonにセット
                 Person = person;
                 _context.Person.Remove(Person);
                 await _context.SaveChangesAsync();

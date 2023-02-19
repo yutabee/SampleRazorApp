@@ -24,6 +24,7 @@ namespace SampleRazorApp.Pages
             return Page();
         }
 
+        //Personインスタンスを生成し、フォームの値をプロパティにバインド
         [BindProperty]
         public Person Person { get; set; } = default!;
         
@@ -31,14 +32,16 @@ namespace SampleRazorApp.Pages
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
+        　//バリデーションをかけて問題があった場合は現在のページを再表示する
           if (!ModelState.IsValid || _context.Person == null || Person == null)
             {
                 return Page();
             }
-
+            //Personのインスタンスをデータコンテキストに追加
             _context.Person.Add(Person);
+            //非同期処理でデータコンテキストの内容をデータベースに反映
             await _context.SaveChangesAsync();
-
+            //トップページにリダイレクトさせる
             return RedirectToPage("./Index");
         }
     }

@@ -28,6 +28,8 @@ namespace SampleRazorApp.Pages
                 return NotFound();
             }
 
+            //指定されたIDのPersonを取得
+            //ラムダ式の条件を元に最初のレコードをモデルクラスのインスタンスとして取得
             var person = await _context.Person.FirstOrDefaultAsync(m => m.PersonId == id);
             if (person == null)
             {
